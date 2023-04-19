@@ -16,10 +16,12 @@ body {
 .aaa .more_inf {
   font-family: fantasy, cursive;
 }
+
 @media (max-width: 768px) {
 .aaa { text-align: center;
 }
 }
+
 .centered-main-page-element {
   display: block;
   width: 500px;
