@@ -1,31 +1,38 @@
 //Document is the DOM can be accessed in the console with document.window.
+// Document — это DOM, к которому можно получить доступ в консоли с помощью document.window.
 // Tree is from the top, html, body, p etc.
+// Дерево сверху, html, body, p и т.д.
 
 //Problem: User interaction does not provide the correct results.
+// Проблема: взаимодействие с пользователем не дает правильных результатов.
 //Solution: Add interactivity so the user can manage daily tasks.
+// Решение: добавьте интерактивность, чтобы пользователь мог управлять ежедневными задачами.
 //Break things down into smaller steps and take each step at a time.
+// Разбейте все на более мелкие шаги и выполняйте каждый шаг за раз.
 
 
 // Event handling, user interaction is what starts the code execution.
+// Обработка событий, взаимодействие с пользователем — это то, что запускает выполнение кода.
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
 
 //New task list item
+//Новый элемент списка задач
 var createNewTaskElement=function(taskString){
 
     var listItem=document.createElement("li");
 
-    //input (checkbox)
+    //input (checkbox)  -  ввод (флажок)
     var checkBox=document.createElement("input");//checkbx
-    //label
+    //label - этикетка
     var label=document.createElement("label");//label
     //input (text)
     var editInput=document.createElement("input");//text
-    //button.edit
+    //button.edit - кнопка редактирования
     var editButton=document.createElement("button");//edit button
 
     //button.delete
@@ -35,12 +42,12 @@ var createNewTaskElement=function(taskString){
     label.innerText=taskString;
     label.className='task';
 
-    //Each elements, needs appending
+    //Each elements, needs appending - Каждый элемент требует добавления
     checkBox.type="checkbox";
     editInput.type="text";
     editInput.className="task";
 
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
+    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not. innerText кодирует специальные символы, HTML - нет.
     editButton.className="edit";
 
     deleteButton.className="delete";
@@ -85,7 +92,7 @@ var editTask=function(){
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
     var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("editMode");
+    var containsClass=listItem.classList.contains("todo-block__edit-mode");
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -99,7 +106,7 @@ var editTask=function(){
     }
 
     //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    listItem.classList.toggle("todo-block__edit-mode");
 };
 
 
